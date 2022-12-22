@@ -48,16 +48,9 @@ sys.stdout.write("""<!doctype html>
 </head>
 <a name="top"></a>
 <body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52069457-1', 'llbit.se');
-  ga('send', 'pageview');
-</script>
-  <div class="hint">&#x1F389; Chunky 2.4.1 is out! Visit the <a href="https://chunky-dev.github.io/docs" target="_blank">new website</a> for detailed guides, downloads, plugins and more.</div>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
   <table id="wrapper">
     <tr id="content">
       <td id="menu">
@@ -71,7 +64,7 @@ sys.stdout.write("""
 """)
 sys.stdout.write(markdown.markdown(text, extensions=['extra']))
 sys.stdout.write("""
-      <div id="footer"><a href="https://github.com/llbit/chunky-docs/edit/master/docs/%s">Edit page</a></div>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/%s">Edit page</a></div>
       </td>
     </tr>
   </table>
