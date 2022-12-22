@@ -1,0 +1,104 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+import org.apache.tools.ant.taskdefs.condition.Os;
+
+defaultTasks 'documentation'
+
+task copyDocs(type: Copy) {
+	inputs.file 'version.properties'
+
+	from 'docs'
+	into 'tmp'
+
+	Properties version = new Properties()
+	version.load(new FileInputStream(file('version.properties')))
+	filter(ReplaceTokens, tokens: [
+		VERSION: "${version['version']}".toString(),
+		EXE_DL_LINK: "${version['exe.dl.link']}".toString(),
+		DMG_DL_LINK: "${version['dmg.dl.link']}".toString(),
+		ZIP_DL_LINK: "${version['zip.dl.link']}".toString(),
+		BUILD_DATE: "${version['build.date']}".toString(),
+		MODERN_VERSION: "${version['modern.version']}".toString(),
+	])
+}
+
+task copyResources(type: Copy) {
+	from 'images'
+	from 'style'
+	into 'out'
+}
+
+task menuTemplate(type: Exec) {
+	inputs.file 'misc/menu.md'
+	inputs.file 'tools/mdwrapper.py'
+	outputs.file 'tmp/menu-template.html'
+	commandLine command([ 'python', file('tools/mdwrapper.py').path, 'prepare' ])
+}
+
+def command(cmd) {
+	if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+		[ 'cmd', '/c' ] + cmd
+	} else {
+		cmd
+	}
+}
+
+// Build list of markdown tasks.
+List docTasks = []
+fileTree(dir: 'docs').include('**/*.md').each { docFile ->
+	String filename = file('docs').toURI().relativize(docFile.toURI())
+	def destName = "out/${filename[0..-4]}.html"
+	def taskName = destName.replace("/", "_").replace(".", "_")
+
+	docTasks << project.task(taskName, type: Exec) {
+		dependsOn copyDocs, menuTemplate
+
+		File sourceFile = new File(file('tmp'), filename)
+		File destFile = file(destName)
+
+		inputs.files menuTemplate.outputs.files
+		inputs.file sourceFile
+                inputs.file 'tools/mdwrapper.py'
+		outputs.file destFile
+
+		commandLine command([ 'python', file('tools/mdwrapper.py').path, sourceFile.path ])
+
+		doFirst {
+			destFile.parentFile.mkdirs()
+
+			// Output stream should not be created during configuration to avoid clobbering
+			// up-to-date output file.
+			standardOutput = new FileOutputStream(destFile)
+		}
+	}
+}
+
+fileTree(dir: 'images/gallery').include('*.png').include('*.jpg').each { image ->
+	String filename = file('images/gallery').toURI().relativize(image.toURI())
+	def destName = "out/gallery/${filename[0..-5]}_thumb.jpg"
+	def taskName = destName.replace("/", "_").replace(".", "_")
+
+	docTasks << project.task(taskName, type: Exec) {
+		File dest = file(destName)
+
+		dest.parentFile.mkdirs()
+
+		inputs.file image
+		outputs.file dest
+
+		commandLine command([ 'python', file('tools/thumbnail.py').path, image.path, dest.path ])
+	}
+}
+
+task documentation() {
+	dependsOn docTasks
+	dependsOn copyResources
+}
+
+task test(dependsOn: documentation, type: Exec) {
+	commandLine command([ 'http-server', file('out').path, '-o', '--cors' ])
+}
+
+task clean(type: Delete) {
+	delete 'tmp'
+	delete 'out'
+}
