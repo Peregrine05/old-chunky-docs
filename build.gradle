@@ -6,7 +6,7 @@ defaultTasks 'documentation'
 task copyDocs(type: Copy) {
 	inputs.file 'version.properties'
 
-	from 'docs'
+	from 'src'
 	into 'tmp'
 
 	Properties version = new Properties()
@@ -24,7 +24,7 @@ task copyDocs(type: Copy) {
 task copyResources(type: Copy) {
 	from 'images'
 	from 'style'
-	into 'out'
+	into 'docs'
 }
 
 task menuTemplate(type: Exec) {
@@ -44,9 +44,9 @@ def command(cmd) {
 
 // Build list of markdown tasks.
 List docTasks = []
-fileTree(dir: 'docs').include('**/*.md').each { docFile ->
-	String filename = file('docs').toURI().relativize(docFile.toURI())
-	def destName = "out/${filename[0..-4]}.html"
+fileTree(dir: 'src').include('**/*.md').each { docFile ->
+	String filename = file('src').toURI().relativize(docFile.toURI())
+	def destName = "docs/${filename[0..-4]}.html"
 	def taskName = destName.replace("/", "_").replace(".", "_")
 
 	docTasks << project.task(taskName, type: Exec) {
@@ -74,7 +74,7 @@ fileTree(dir: 'docs').include('**/*.md').each { docFile ->
 
 fileTree(dir: 'images/gallery').include('*.png').include('*.jpg').each { image ->
 	String filename = file('images/gallery').toURI().relativize(image.toURI())
-	def destName = "out/gallery/${filename[0..-5]}_thumb.jpg"
+	def destName = "docs/gallery/${filename[0..-5]}_thumb.jpg"
 	def taskName = destName.replace("/", "_").replace(".", "_")
 
 	docTasks << project.task(taskName, type: Exec) {
@@ -95,10 +95,10 @@ task documentation() {
 }
 
 task test(dependsOn: documentation, type: Exec) {
-	commandLine command([ 'http-server', file('out').path, '-o', '--cors' ])
+	commandLine command([ 'http-server', file('docs').path, '-o', '--cors' ])
 }
 
 task clean(type: Delete) {
 	delete 'tmp'
-	delete 'out'
+	delete 'docs'
 }
