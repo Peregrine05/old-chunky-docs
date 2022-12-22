@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chunky 1.2.2</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="release/1.2.2/release_notes.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Chunky 1.2.2</h1>
+<h2>Downloads</h2>
+<ul>
+<li><a href="https://launchpad.net/chunky/1.2/1.2.2/+download/Chunky-1.2.2.exe">Windows Installer</a></li>
+<li><a href="https://launchpad.net/chunky/1.2/1.2.2/+download/Chunky-1.2.2.zip">Cross-platform binaries (Mac, Win, Linux)</a></li>
+<li><a href="http://chunkyupdate.llbit.se/ChunkyLauncher.jar">Launcher only (Mac, Win, Linux)</a></li>
+</ul>
+<h2>Release Notes</h2>
+<p>This release includes several small bug fixes and general interface
+improvements:</p>
+<ul>
+<li>Pressing the U key in the 3D preview window makes it go full-screen.</li>
+<li>The 2D map has been improved and now updates dynamically.</li>
+<li>The 3D rendering interface was made more compact by replacing the
+  camera preset buttons with a drop-down list.</li>
+<li>It is now possible to save/load custom camera presets for each scene.</li>
+<li>The scene selector can delete scenes and export scenes to a Zip archive.</li>
+<li>Reduced default Sun intensity a bit.</li>
+</ul>
+<p>Headless rendering has been improved and there are some new commands in the
+command-line interface:</p>
+<pre><code>-snapshot &lt;SCENE&gt; &lt;PNG&gt; render the latest saved render dump to a PNG image
+-download-mc &lt;VERSION&gt;  download the specified version of Minecraft
+-version                report the current Chunky version
+--update                download the latest Chunky version
+--setup                 configure the maximum memory limit and Java options
+--verbose               shows the command used to run Chunky
+--version               report the current launcher version
+</code></pre>
+<p>Note that the Minecraft version downloaded with the -download-mc command is
+used as the default texture source <em>only if</em> no other Minecraft version is
+found by Chunky.</p>
+<h2>Change Log</h2>
+<pre><code>* Added "follow player" option for the 2D map
+* Made 2D map drawing more efficient
+* Adjusted default Sun intensity to 1.25
+* It is now possible to save and load custom camera presets
+* Made Render Controls dialog more compact
+* Moved camera presets to drop-down list
+* Added Granite, Diorite, and Andesite stone blocks
+* Chunky now dynamically refreshes the main map view based on
+  changes to the Minecraft world as detected in the filesystem
+* Added Chunky commands: -snapshot, -version, -download-mc
+* Added launcher commands: --setup, --update, --version, --verbose
+* Fixed error causing the launcher to crash when running in headless mode
+  if the launcher GUI had not previously been run
+* The launcher (v1.7.0 and later) now ignores older releases if a newer
+  version already is installed
+* Using -render without a scene name argument prints out available scenes
+* Added Help tab listing keyboard shortcuts in the Render Controls window
+* Pressing U in the Render Preview window makes it go fullscreen
+* The scene selector can now to delete scenes or export scenes to Zip file
+* Fixed potential crash in the launcher from a clean install
+</code></pre>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/release/1.2.2/release_notes.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

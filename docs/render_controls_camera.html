@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render Controls &mdash; Camera</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="render_controls_camera.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Render Controls &mdash; Camera</h1>
+<p><a href="render_controls_general.html">General</a> | <a href="render_controls_lighting.html">Lighting</a> | <a href="render_controls_sky.html">Sky</a> | <strong>Camera</strong> | <a href="render_controls_post-processing.html">Post-Processing</a> | <a href="render_controls_advanced.html">Advanced</a> | <a href="render_controls_global.html">Global</a></p>
+<p><img alt="(win) render controls camera panel" src="render_controls_camera.png" /></p>
+<hr />
+<dl>
+<dt><strong>Position</strong></dt>
+<dd>Defines the X, Y, Z, coordinates of the Camera. These coordinates correlate with the Minecraft world positions.</dd>
+<dt><strong>Direction</strong></dt>
+<dd>The first 2 input fields define the directional constraint of the camera. The Last input field defines the rotation of the camera.</dd>
+<dt><strong>Camera to Player</strong></dt>
+<dd>Sets the position and facing of the camera to be the same as that of the player.</dd>
+<dt><strong>Center Camera</strong></dt>
+<dd>Moves the camera to the centre of the loaded world and faces the camera to the ground.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Skybox Views</strong></dt>
+<dd>Rotates the camera to face towards the selected direction.</dd>
+<dt><strong>Isometric Views</strong></dt>
+<dd>Moves the camera to any of the traditional isometric views and changes the projection mode to Parallel.</dd>
+<dt><strong>Projection</strong></dt>
+<dd>Changes the path projection method to any of the possible projection modes: Parallel, Pinhole, Fisheye, Panoramic (equirectangular) and Panoramic (slot).</dd>
+</dl>
+<ul>
+<li><em>Pinhole</em> is default and makes Chunky work like a normal camera.</li>
+<li><em>Parallel</em> removes all perspective, all blocks are the same size, regardless of distance to the camera.</li>
+<li><em>Fisheye</em> makes Chunky work like a camera with extreme wide angle lens, and distorts the image.</li>
+<li><em>Panoramic (equirectangular)</em> allows for wide angles, all angles are rendered as though the camera points in all directions at once, so there's less distortion than a wide angle in Pinhole mode.</li>
+<li><em>Panoramic (slot)</em> ...</li>
+</ul>
+<dl>
+<dt><strong>Field of View (zoom)</strong></dt>
+<dd>Controls the field of view in the virtual camera. Lower causes a narrower field of view (higher magnification) and high value will result in a wider field of view (low magnification).  70 is the default value, which corresponds with Minecraft's normal field of view.</dd>
+<dt><strong>Depth of Field</strong></dt>
+<dd>The depth of field controls the level of blurriness of objects in the scene which are not in focus. A low value will result in lots of blur while a low value will leave the whole image looking fairly sharp. Setting this value to infinite will completely remove the depth of field making the whole image perfectly sharp, this is also the default setting.
+A good article explaining how this works can be found on <a href="http://en.wikipedia.org/wiki/Depth_of_field">Wikipedia</a>.</dd>
+<dt><strong>Focal Offset</strong></dt>
+<dd>Focal offset decides how far the focal plane is from the camera. If you want to focus an object that is 20 blocks away the focal plane should be set to 20. Estimating the distance (in blocks) to a given object is a good way to make an initial guess for the correct focal offset setting. Or by using the "Autofocus" button below. Objects at this range will appear perfectly sharp even if DOF is set to a low value.</dd>
+<dt><strong>Autofocus</strong></dt>
+<dd>Sets the Focal Offset and Depth of Field to the point in the middle of the <a href="render_preview.html">Render Preview</a>, under the crosshair.</dd>
+</dl>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/render_controls_camera.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

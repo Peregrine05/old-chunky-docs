@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Plugin API</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="plugin_api.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Plugin API</h1>
+<p>Chunky 1.4 added experimental plugin support. This page documents how to build a new plugin
+for Chunky, and the available plugin API interfaces.</p>
+<p>The full JavaDoc API documentation is <a href="/api/">here</a>.</p>
+<h2>Creating a basic plugin</h2>
+<p>Chunky plugins are packaged as Jar files with a main class extending the
+interface <code>se.llbit.chunky.plugin.Plugin</code>.</p>
+<p>The simplest way to start building a plugin is to copy one of
+these existing sample plugins:</p>
+<ul>
+<li><a href="https://github.com/llbit/Chunky-AOPlugin">Ambient occlusion renderer</a></li>
+<li><a href="https://github.com/llbit/Chunky-BlockMod">Block model changing (grass into lava)</a></li>
+<li><a href="https://github.com/llbit/Chunky-TabMod">Custom Render Controls tab</a></li>
+</ul>
+<p>The Chunky plugin API can also be used to build new applications based on Chunky. Here is
+an application that uses parts of the Chunky rendering system to render different kinds of
+Minecraft blocks and items:</p>
+<ul>
+<li><a href="https://github.com/llbit/Chunky-TestRenderer">Test Renderer</a></li>
+</ul>
+<p>For building your plugin you can use <a href="https://gradle.org/">Gradle</a>. Here is the Gradle build script from
+the custom Render Controls tab plugin:</p>
+<pre><code>apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+dependencies {
+    compile 'se.llbit:chunky-core:1.4.1'
+}
+
+defaultTasks 'jar'
+
+mainClassName = 'se.llbit.chunky.plugin.TabMod'
+</code></pre>
+<p>If you want to test running your plugin using Gradle you will have to change the
+<code>mainClassName</code> property to your plugin class name. The plugin class then also
+needs a main method. Here is how you can launch Chunky from your plugin main class:</p>
+<pre><code>import se.llbit.chunky.Plugin;
+import se.llbit.chunky.main.Chunky;
+import se.llbit.chunky.main.ChunkyOptions;
+import se.llbit.chunky.ui.ChunkyFx;
+
+public class MyPlugin implements Plugin {
+  public static void main(String[] args) throws Exception {
+    // Start Chunky normally with this plugin attached.
+    Chunky.loadDefaultTextures();
+    Chunky chunky = new Chunky(ChunkyOptions.getDefaults());
+    new MyPlugin().attach(chunky);
+    ChunkyFx.startChunkyUI(chunky);
+  }
+}
+</code></pre>
+<h2>Plugin manifest</h2>
+<p>Since version 1.4.3, plugins have a metadata file inside their Jar file named
+<code>plugin.json</code>, which defines the main class of the plugin, and other metadata about
+the plugin.</p>
+<p>This is the current JSON format used in the <code>plugin.json</code> file:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main</td>
+<td>String</td>
+<td>The main plugin class name (must extend <code>se.llbit.chunky.plugin.Plugin</code>).</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the plugin.</td>
+</tr>
+<tr>
+<td>author</td>
+<td>String</td>
+<td>The author of the plugin.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>String</td>
+<td>Plugin version.</td>
+</tr>
+<tr>
+<td>targetVersion</td>
+<td>String</td>
+<td>The Chunky version the plugin is compatible with.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Plugin description.</td>
+</tr>
+</tbody>
+</table>
+<p>If you use Gradle to build your plugins, place the <code>plugin.json</code> file in the
+directory <code>src/main/resources/</code>.</p>
+<h2>Plugin manager</h2>
+<p>A plugin manager is integrated into the Chunky launcher since version 1.10 of the launcher.
+The plugin manager is accessed via the "Manage Plugins" button under the Advanced tab.</p>
+<h2>Plugin API methods</h2>
+<p>The plugin API will be expanded as needed for future plugins. If you have a
+request for a new plugin API method, please suggest it <a href="https://github.com/llbit/chunky/issues">on the issue tracker</a>.</p>
+<p>This is a list of the methods available to plugins currently in the plugin API:</p>
+<ul>
+<li><code>se.llbit.chunky.main.Chunky</code>:<ul>
+<li><code>setRenderContextFactory()</code> - changes the <code>RenderContext</code> factory.
+The render context is used for  locating the scene directory and
+controlling some renderer configurations like the number of render threads.</li>
+<li><code>setSceneFactory()</code> - changes the <code>Scene</code> factory for the renderer.
+The <code>Scene</code> class encapsulates most of the scene state in the renderer.</li>
+<li><code>setPreviewRayTracerFactory()</code> - this sets the factory that builds
+the preview ray tracer. The preview ray tracer is used for rendering preview
+frames.</li>
+<li><code>setRayTracerFactory()</code> - this can be used to change the default Java path
+tracing renderer to a completely different renderer. This is done in the
+<a href="https://github.com/llbit/Chunky-AOPlugin">ambient occlusion plugin demo</a>.</li>
+<li><code>setRenderControlsTabTransformer()</code> - sets a callback for transforming
+the list of Render Controls tab. This can be used to insert a custom
+tab in the Render Controls window. See <a href="https://github.com/llbit/Chunky-TabMod">the demo plugin</a> for a usage example.</li>
+</ul>
+</li>
+<li><code>se.llbit.chunky.world.Block</code>:<ul>
+<li><code>set(int, Block)</code> - used to change the representation for a Minecraft block
+in the renderer. This can be used for simple things like changing textures or
+material properties (emittiance, shinyness, ...), as well as more advanced things like
+completely changing the block rendering model. See [the demo plugin][4] for
+an example.</li>
+</ul>
+</li>
+</ul>
+<h2>Things that will change</h2>
+<p>Since the plugin API is very new, with currently no third-party plugins using it,
+it is very much unstable. Anything may change at this point, but in particular
+these things will probably change:</p>
+<ul>
+<li>The <code>Scene</code> class is not well suited for encapsulating the scene state in a
+  clean way. Some parts of the state are intentionally shared between threads
+  in a way that is likely confusing to other developers. It also uses a very
+  unintuitive synchronization scheme. The current implementation makes it
+  difficult for plugins to safely extend or alter the scene state.</li>
+<li>Building a new type of renderer is not very well supported right now since
+  there is only one current implementation: the default Java renderer. Adding
+  an OpenCL renderer is likely very difficult right now just because the
+  rendering architecture has been tightly integrated with the default renderer.</li>
+<li>The way block rendering for most blocks works is not pretty. It uses
+  nonstandard triangle and quadrilateral representations for most block
+  geometry. The ray tracing for these is not well documented and should
+  probably be replaced by more standard triangle-based ray tracing.</li>
+</ul>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/plugin_api.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

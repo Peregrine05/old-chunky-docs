@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chunky 1.3.5</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="release/1.3.5/release_notes.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Chunky 1.3.5</h1>
+<h3>Downloads</h3>
+<ul>
+<li><a href="https://launchpad.net/chunky/1.3/1.3.5/+download/Chunky-1.3.5.exe">Windows installer</a></li>
+<li><a href="https://launchpad.net/chunky/1.3/1.3.5/+download/Chunky-1.3.5.dmg">Mac bundle</a></li>
+<li><a href="https://launchpad.net/chunky/1.3/1.3.5/+download/Chunky-1.3.5.zip">Cross-platform binaries</a></li>
+<li><a href="http://chunkyupdate.llbit.se/ChunkyLauncher.jar">Only launcher (win, mac, linux)</a></li>
+</ul>
+<h3>Release Notes</h3>
+<p>This version adds rendering of paintings and has a reworked fog rendering
+system that is simpler, more efficient, and allows customization.  Fog color
+and density can now be changed in the "Sky &amp; Fog" tab. This allows rendering
+thick fog, light haze, or anything inbetween.</p>
+<p>A camera view indicator is now drawn in the 2D map as a yellow rectangle, and
+by using the right-click context menu anywhere in the 2D map it is possible to
+select all visible chunks inside the camera view. This is useful for setting up
+new scenes.</p>
+<p>The UI has been improved with new icons and bug fixes.</p>
+<p>More cool stuff:</p>
+<ul>
+<li>Single-color texture option</li>
+<li>Corner stairs, buttons, and mushroom block render issues fixed</li>
+<li>Underwater light pollution fixed</li>
+</ul>
+<h3>ChangeLog</h3>
+<pre><code>* Added option to select visible chunks in the 2D map context menu
+  (selects visible chunks inside the camera view indicator)
+* Nether portals now emit light
+* Re-engineered atmosphere and fog rendering, replaced it with a simpler
+  but more customizable fog system. Fog density and color can be changed
+  by the user (in the "Sky &amp; Fog" tab).
+* Fixed stairs with fog render issue
+* Added a notification after changing the Y cutoff setting about reloading
+  the chunks for the setting to take effect.
+* Added new tab icons in the Render Controls window. This fixes the issue
+  with huge tabs when a high-resolution texture pack was used.
+* Improved huge mushroom rendering: mushroom blocks with some data values
+  were rendered incorrectly
+* Fixed a rendering issue for corner stairs causing various configurations
+  to render incorrectly
+* Fixed an error causing incorrect lighting of underwater blocks
+* Fixed button rendering (render new button orientations correctly)
+* The render reset confirmation feature now works as it should when the
+  target SPP has been reached
+* Added slider for the target SPP setting
+* Added scroll bars to the render preview when the window is too small to
+  fit the entire image
+* The render preview window no longer stretches the image to fit the window
+* Added "Move camera here" item in the map context menu
+* Added "follow camera" option to the Map View tab of the main window
+* Added camera field of view indicator in the 2D map
+* Added single color textures option, found under the Options tab in
+  the main window
+* Added paintings rendering
+* The sky light modifier can now be set to zero by typing "0" in the
+  text field next to the sky light slider
+</code></pre>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/release/1.3.5/release_notes.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

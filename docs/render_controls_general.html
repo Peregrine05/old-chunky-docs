@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render Controls &mdash; General</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="render_controls_general.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Render Controls &mdash; General</h1>
+<p><strong>General</strong> | <a href="render_controls_lighting.html">Lighting</a> | <a href="render_controls_sky.html">Sky</a> | <a href="render_controls_camera.html">Camera</a> | <a href="render_controls_post-processing.html">Post-Processing</a> | <a href="render_controls_advanced.html">Advanced</a> | <a href="render_controls_global.html">Global</a></p>
+<p><img alt="(win) render controls general panel" src="render_controls_general.png" /></p>
+<hr />
+<dl>
+<dt><strong>Load Scene</strong></dt>
+<dd>Lists saved scenes within the active directory. Click the desired scene to start loading it.</dd>
+<dt><strong>Open Scene Directory</strong></dt>
+<dd>Lists saved scenes within the active directory. Click the desired scene to start loading it.</dd>
+<dt><strong>Load Selected Chunks</strong></dt>
+<dd>Loads all chunks currently selected in the world overview. Be careful, as your current camera position will get reset to the center of the selected chunks every time you use this feature.</dd>
+<dt><strong>Reload Chunks</strong></dt>
+<dd>Reloads the chunks currently loaded in the renderer.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Canvas Width/Height</strong></dt>
+<dd>Defines the resolution/size of the canvas via the width &amp; height values in pixels. The default values are 400x400.</dd>
+<dt><strong>Set Canvas Size</strong></dt>
+<dd>Sets the canvas size to the values specified in the "Canvas width" &amp; "Canvas height" fields found just above this button.</dd>
+<dt><strong>Halve</strong></dt>
+<dd>Cuts both the height and the width of the canvas in half, rounded down.</dd>
+<dt><strong>Double</strong></dt>
+<dd>Doubles the height and the width of the canvas.</dd>
+<dt><strong>Make Default</strong></dt>
+<dd>Sets the default canvas size of new scenes to the canvas size of current scene.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Still Water</strong></dt>
+<dd>Toggles whether water has ripples or not.</dd>
+<dt><strong>Clear Water</strong></dt>
+<dd>Toggles the "fog" which can be seen in water.</dd>
+<dt><strong>Enable Biome Colors</strong></dt>
+<dd>Toggles the display of biome specific colors.</dd>
+<dt><strong>Save dump once every x frames</strong></dt>
+<dd>This option will cause Chunky to save a dump (frame, scene and biome colours) once every fiftieth, hundredth, five hundredth, or thousandth frame. Default is 500th.</dd>
+<dt><strong>Save snapshot for each dump</strong></dt>
+<dd>When checked this option will save a image file when chunky saves dump files. Useful if you don't want to clutter your scene directory folder with lots of intermediate image files.</dd>
+</dl>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/render_controls_general.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Render Controls &mdash; Global</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="render_controls_global.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="/index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/search.html"><img src="/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/discord_icon.png" /></a></li>
+<li><a href="/index.html">About</a><ul>
+<li><a href="/news.html">News</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/chunky2.html">Chunky 2</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/gallery.html"><img src="/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/getting_started.html">Getting Started</a><ul>
+<li><a href="/your_first_render.html">Your first render!</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/user_interface.html">User Interface</a><ul>
+<li><a href="/2d_map.html">2D Map</a></li>
+<li><a href="/render_controls.html">Render Controls</a></li>
+<li><a href="/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/path_tracing.html">Path Tracing</a></li>
+<li><a href="/headless.html">Headless Rendering</a></li>
+<li><a href="/scene_format.html">Scene Format</a></li>
+<li><a href="/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/plugin_api.html">Plugin API</a></li>
+<li><a href="/api/">API Docs</a></li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="http://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/contributing.html">Contributing</a></li>
+<li><a href="/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Render Controls &mdash; Global</h1>
+<p><a href="render_controls_general.html">General</a> | <a href="render_controls_lighting.html">Lighting</a> | <a href="render_controls_sky.html">Sky</a> | <a href="render_controls_camera.html">Camera</a> | <a href="render_controls_post-processing.html">Post-Processing</a> | <a href="render_controls_advanced.html">Advanced</a> | <strong>Global</strong></p>
+<p><img alt="(win) render controls global panel" src="render_controls_global-01.png" /></p>
+<hr />
+<dl>
+<dt><strong>Scene Name</strong></dt>
+<dd>Saves the scene currently open in the renderer with the name provided in the "Scene Name" field to the active directory. This directory is specified when the scene is first created. Use the 'Open Scene Directory' button under the <a href="render_controls_general.html">General Tab</a> to quickly access the active directory. To change the directory in which scene resides, you'll need to manually copy all the files associated with the scene to a new directory and relaunch the Render Controls with the copied scene file.</dd>
+</dl>
+<hr />
+<p><img alt="(win) render controls global panel" src="render_controls_global-02.png" /></p>
+<hr />
+<dl>
+<dt><strong>SPP Target</strong></dt>
+<dd>Defines the targeted number of samples per pixel. Once Chunky has reached the targeted amount it will save a rendered frame and render dump files.</dd>
+<dt><strong>Set Default</strong></dt>
+<dd>Sets the default SPP target to the value entered in the SPP Target field.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Start / Pause / Resume</strong></dt>
+<dd>This button will start the path tracing render. If Chunky is already rendering, this button will change to say 'Pause', and will pause the render. When render is paused, this button will change to say 'Resume', and will let Chunky continue rendering.</dd>
+<dt><strong>Reset</strong></dt>
+<dd>This button will cancel the rendering process and reset the SPP count to 0. Any progress made since the scene was last saved will be lost, it is recommended to save the scene before clicking this button.</dd>
+<dt><strong>Auto Lock</strong></dt>
+<dd>Toggles whether the UI automatically locks during renders. Clicking the Lock symbol will manually lock the UI.</dd>
+<dt><strong>Save Current Frame</strong></dt>
+<dd>To save the currently showing frame to an image file. This will not save the whole scene to a dump file, use 'Save Scene' in the General tab for that instead.</dd>
+<dt><strong>Show/Hide Preview</strong></dt>
+<dd>Toggles display of the Render Preview window. Disabling this option may increase performance if post-processing is in use.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Render Time</strong></dt>
+<dd>Displays how long Chunky has been rendering the current scene.</dd>
+<dt><strong>SPS</strong></dt>
+<dd>Samples Per Second; Indicates the average speed or efficiency of the rendering. This higher this number is, the faster Chunky renders and the sooner it reaches the Target SPP.</dd>
+<dt><strong>SPP</strong></dt>
+<dd>Samples Per Pixel; Indicates how many times each pixel in the rendered image has been sampled, or traced. A higher number will correspond with a less noisy image. Every time this value updates, the Render Preview also updates if visible.</dd>
+</dl>
+<hr />
+<dl>
+<dt><strong>Current Activity</strong></dt>
+<dd>Displays active events within Chunky from saving to rendering the scene. During the rendering process this will display current SPP and Target SPP values.</dd>
+<dt><strong>ETA</strong></dt>
+<dd>Displays the estimate of how much longer Chunky needs to render before it reaches the Target SPP.</dd>
+</dl>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/render_controls_global.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
