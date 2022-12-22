@@ -1,6 +1,6 @@
 # Chunky Documentation
 
-This is a clone of the repository for the old Chunky documentation that was previously hosted at [https://chunky.llbit.se](https://chunky.llbit.se).The original repository for the old Chunky documentation is located at [https://github.com/llbit/chunky-docs](https://github.com/llbit/chunky-docs).
+This is a clone of the repository for the old Chunky documentation that was previously hosted at [https://chunky.llbit.se](https://chunky.llbit.se). The original repository for the old Chunky documentation is located at [https://github.com/llbit/chunky-docs](https://github.com/llbit/chunky-docs).
 
 The current Chunky documentation is hosted at [https://chunky-dev.github.io/docs/](https://chunky-dev.github.io/docs/). As 'https://chunky.llbit.se' now redirects to 'https://chunky-dev.github.io/docs/', this repository exists to keep the old documentation website easily accessible, as the web archive version is slow to access, and not all resources may be completely saved there.
 
