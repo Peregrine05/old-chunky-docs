@@ -2,15 +2,15 @@
 
 [General][0] | [Lighting][1] | [Sky][2] | [Camera][3] | [Post-Processing][4] | [Advanced][5] | **Global**
 
-[0]:render_controls_general.html
-[1]:render_controls_lighting.html
-[2]:render_controls_sky.html
-[3]:render_controls_camera.html
-[4]:render_controls_post-processing.html
-[5]:render_controls_advanced.html
-[6]:render_controls_global.html
+[0]: /old-chunky-docs/render_controls_general.html
+[1]: /old-chunky-docs/render_controls_lighting.html
+[2]: /old-chunky-docs/render_controls_sky.html
+[3]: /old-chunky-docs/render_controls_camera.html
+[4]: /old-chunky-docs/render_controls_post-processing.html
+[5]: /old-chunky-docs/render_controls_advanced.html
+[6]: /old-chunky-docs/render_controls_global.html
 
-![(win) render controls global panel](render_controls_global-01.png)
+![(win) render controls global panel](/old-chunky-docs/render_controls_global-01.png)
 
 ----
 
@@ -19,7 +19,7 @@
 
 ----
 
-![(win) render controls global panel](render_controls_global-02.png)
+![(win) render controls global panel](/old-chunky-docs/render_controls_global-02.png)
 
 ----
 
@@ -65,4 +65,4 @@
 **ETA**
 :   Displays the estimate of how much longer Chunky needs to render before it reaches the Target SPP.
 
-[10]:render_controls_general.html
+[10]: /old-chunky-docs/render_controls_general.html

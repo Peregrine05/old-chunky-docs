@@ -119,6 +119,6 @@ over to this new site by TheRenderJunkie and myself.
 
 /Jesper
 
-[1]: snapshot.html
-[2]: download.html
+[1]: /old-chunky-docs/snapshot.html
+[2]: /old-chunky-docs/download.html
 [3]: https://www.reddit.com/r/chunky/comments/4yf298/chunky_snapshot_140alpha1/

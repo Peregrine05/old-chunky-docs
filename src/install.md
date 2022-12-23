@@ -30,7 +30,7 @@ You should put these arguments into the launcher too.
 The first time you start Chunky or the Chunky Launcher, you will be asked to
 pick a settings directory for Chunky:
 
-![First-Time Setup dialog](first-time-setup.png)
+![First-Time Setup dialog](/old-chunky-docs/first-time-setup.png)
 
 The recommended directory is usually the best option. Click "Use Selected
 Directory" to continue.
@@ -38,7 +38,7 @@ Directory" to continue.
 Next, you will see the Chunky Launcher. Even if you did not download the
 standalone launcher, this window will pop up:
 
-![Chunky Launcher main window](launcher.png)
+![Chunky Launcher main window](/old-chunky-docs/launcher.png)
 
 If you downloaded only the launcher then you will have to update Chunky,
 otherwise can click "Launch" to start Chunky.
@@ -53,7 +53,7 @@ start Chunky if you only downloaded the launcher.
 If an update to Chunky was is available you will soon see the "Update
 Available!" window:
 
-![Update Available! window](update-available.png)
+![Update Available! window](/old-chunky-docs/update-available.png)
 
 Click the "Update to New Version" button to start downloading the required
 files. When the download process has completed you can close the "Update

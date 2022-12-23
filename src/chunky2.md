@@ -7,9 +7,9 @@ format used by Minecraft 1.13+. As of Chunky 2.4 it is possible to load worlds b
 To get the latest release please follow the button/link below.
 
 <center>
-	<a href="download.html" class="button"> Chunky @MODERN_VERSION@ <br><btnsub>Minecraft 1.2.1 to 1.17.1</btnsub></a>
+	<a href="/old-chunky-docs/download.html" class="button"> Chunky @MODERN_VERSION@ <br><btnsub>Minecraft 1.2.1 to 1.17.1</btnsub></a>
 </center>
-![Chunky 2 preview](chunky2preview.png)
+![Chunky 2 preview](/old-chunky-docs/chunky2preview.png)
 
 ## Features
 

@@ -37,7 +37,7 @@ Samples Per Pixel (SPP)
 The defining factor for render quality is the number of samples per pixel
 (SPP).
 
-![Indoor scene SPP Comparison](spp-compare.gif)
+![Indoor scene SPP Comparison](/old-chunky-docs/spp-compare.gif)
 
 The higher SPP you have in a rendered image the less noise will be noticeable.
 However the added quality per sample decreases the more samples you have
@@ -90,11 +90,11 @@ SPP Comparisons
 
 An indoor scene rendered with increasing SPP. The white numbers show SPP:
 
-![Indoor scene SPP comparison](spp-compare-1.png)
+![Indoor scene SPP comparison](/old-chunky-docs/spp-compare-1.png)
 
-![Outdoor scene SPP comparison](spp-compare-2.png)
+![Outdoor scene SPP comparison](/old-chunky-docs/spp-compare-2.png)
 
-![Outdoor scene SPP comparison](spp-compare-3.png)
+![Outdoor scene SPP comparison](/old-chunky-docs/spp-compare-3.png)
 
 
-[1]: http://en.wikipedia.org/wiki/Ray_tracing_(graphics)
+[1]: https://en.wikipedia.org/wiki/Ray_tracing_(graphics)

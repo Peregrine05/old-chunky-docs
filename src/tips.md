@@ -22,5 +22,5 @@ General Render Tips
   background, you can adjust how much CPU is allocated to Chunky. Visit the
   [Advanced Render Controls][0] page for more information on how to do this.
 
-[0]:render_controls_advanced.html
-[1]:render_preview.html
+[0]: /old-chunky-docs/render_controls_advanced.html
+[1]: /old-chunky-docs/render_preview.html

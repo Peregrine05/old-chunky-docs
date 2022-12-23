@@ -18,7 +18,7 @@ horizon, so it is mirrored at the horizon. If the skymap has 180&deg; vertical
 resolution the mirroring is not needed: the skymap will cover both sky and
 ground.
 
-![Skymap vertical resolution](skymap_vertical_resolution.png)
+![Skymap vertical resolution](/old-chunky-docs/skymap_vertical_resolution.png)
 
 Where to find skymaps
 ---------------------
@@ -66,11 +66,11 @@ example `800x400` in the canvas size text field and hitting `Enter`.
 
 This shows the Camera tab with correct values entered:
 
-![Camera setup for custom sky map](create_skymap.png)
+![Camera setup for custom sky map](/old-chunky-docs/create_skymap.png)
 
 And this is what the resulting render should look like:
 
-![Custom sky map](custom_skymap.png)
+![Custom sky map](/old-chunky-docs/custom_skymap.png)
 
 
 

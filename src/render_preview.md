@@ -1,6 +1,6 @@
 #Render Preview Window
 
-![Render Preview Window Example](Chunky_Render_Preview.png)
+![Render Preview Window Example](/old-chunky-docs/Chunky_Render_Preview.png)
 
 
 * **Pan/Tilt**

@@ -10,7 +10,7 @@ Loading a World
 
 When you have started Chunky you should see something like this:
 
-![Chunky Main window](chunky-first-launch.png)
+![Chunky Main window](/old-chunky-docs/chunky-first-launch.png)
 
 The dialog in the middle asks you to select a world. If you don't see any
 worlds listed in the list this is either because your Minecraft installation is
@@ -25,7 +25,7 @@ Selecting Chunks
 
 When you have loaded a world in Chunky it should look something like this:
 
-![Chunky Main window, world loaded](chunky-main.png)
+![Chunky Main window, world loaded](/old-chunky-docs/chunky-main.png)
 
 You can select some chunks by clicking the left mouse button, or by holsing
 <kbd>Shift</kbd> and pressing the left mouse button and dragging to create a

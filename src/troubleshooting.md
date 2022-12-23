@@ -12,7 +12,7 @@ when starting Chunky. The option needs to be added in the "Java options"
 field in the launcher. If not even the launcher will open, then the
 start menu shortcuts for Chunky need to be edited, like this:
 
-![Windows 10: editing Chunky shortcut to add -Dprism.order=sw](prism_order_sw_windows.png)
+![Windows 10: editing Chunky shortcut to add -Dprism.order=sw](/old-chunky-docs/prism_order_sw_windows.png)
 
 Later releases will fix this issue by adding the `-Dprism.order=sw` option
 by default to the Chunky shortcuts.
@@ -48,11 +48,11 @@ than 2Gb for the Chunky memory limit.
 If you try launching Chunky with more than 2Gb of memory in a 32-bit Java installation,
 you will get an error message similar to this:
 
-![Windows 7 heap size error](heapsize_win32.png)
+![Windows 7 heap size error](/old-chunky-docs/heapsize_win32.png)
 
 Check the debug console (enable it under Advanced Settings in the launcher):
 
-![windows 7 heap size error](heapsize_win32_console.png)
+![windows 7 heap size error](/old-chunky-docs/heapsize_win32_console.png)
 
 The line that says "Could not reserve enough space for ...  object heap"
 indicates that the Java installation did not allow the configured memory limit.

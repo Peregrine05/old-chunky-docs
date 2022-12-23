@@ -5,7 +5,7 @@ Snapshots are **untested** versions of Chunky released sporadically in order to
 get feedback on upcoming features. You may choose to use snapshot versions by
 selecting the "Download snapshots" check-box in the [Chunky Launcher][1]:
 
-![Snapshot check-box](snapshot-checkbox.png)
+![Snapshot check-box](/old-chunky-docs/snapshot-checkbox.png)
 
 After enabling snapshot downloads you may check if there is a snapshot
 available by clicking the "Check for Update" button. If a new snapshot is

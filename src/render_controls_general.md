@@ -2,15 +2,15 @@
 
 **General** | [Lighting][1] | [Sky][2] | [Camera][3] | [Post-Processing][4] | [Advanced][5] | [Global][6]
 
-[0]:render_controls_general.html
-[1]:render_controls_lighting.html
-[2]:render_controls_sky.html
-[3]:render_controls_camera.html
-[4]:render_controls_post-processing.html
-[5]:render_controls_advanced.html
-[6]:render_controls_global.html
+[0]: /old-chunky-docs/render_controls_general.html
+[1]: /old-chunky-docs/render_controls_lighting.html
+[2]: /old-chunky-docs/render_controls_sky.html
+[3]: /old-chunky-docs/render_controls_camera.html
+[4]: /old-chunky-docs/render_controls_post-processing.html
+[5]: /old-chunky-docs/render_controls_advanced.html
+[6]: /old-chunky-docs/render_controls_global.html
 
-![(win) render controls general panel](render_controls_general.png)
+![(win) render controls general panel](/old-chunky-docs/render_controls_general.png)
 
 ----
 

@@ -2,15 +2,15 @@
 
 [General][0] | [Lighting][1] | [Sky][2] | **Camera** | [Post-Processing][4] | [Advanced][5] | [Global][6]
 
-[0]:render_controls_general.html
-[1]:render_controls_lighting.html
-[2]:render_controls_sky.html
-[3]:render_controls_camera.html
-[4]:render_controls_post-processing.html
-[5]:render_controls_advanced.html
-[6]:render_controls_global.html
+[0]: /old-chunky-docs/render_controls_general.html
+[1]: /old-chunky-docs/render_controls_lighting.html
+[2]: /old-chunky-docs/render_controls_sky.html
+[3]: /old-chunky-docs/render_controls_camera.html
+[4]: /old-chunky-docs/render_controls_post-processing.html
+[5]: /old-chunky-docs/render_controls_advanced.html
+[6]: /old-chunky-docs/render_controls_global.html
 
-![(win) render controls camera panel](render_controls_camera.png)
+![(win) render controls camera panel](/old-chunky-docs/render_controls_camera.png)
 
 ----
 
@@ -58,5 +58,5 @@ A good article explaining how this works can be found on [Wikipedia][10].
 :   Sets the Focal Offset and Depth of Field to the point in the middle of the [Render Preview][11], under the crosshair.
 
 
-[10]:http://en.wikipedia.org/wiki/Depth_of_field
-[11]:render_preview.html
+[10]: http://en.wikipedia.org/wiki/Depth_of_field
+[11]: /old-chunky-docs/render_preview.html
