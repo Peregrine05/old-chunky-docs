@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sky Maps</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="skymaps.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Sky Maps</h1>
+<p>You can change the skymap under the "Sky" tab of the Render Controls dialog.
+There are several different types of sky map to choose from. Chunky supports a
+few different kinds of skymap projections, however "equirectangular" projection
+is the most common type of sky map.</p>
+<p>It is recommended to use a large skymap in order to avoid the sky looking
+blurry.  However, if the skymap is too large it will take a long time to load.</p>
+<h2>Vertical Resolution</h2>
+<p>Equirectangular skymaps can have 90&deg; or 180&deg; vertical resolution.  With
+90&deg; vertical resolution the skymap will only cover the sky above the
+horizon, so it is mirrored at the horizon. If the skymap has 180&deg; vertical
+resolution the mirroring is not needed: the skymap will cover both sky and
+ground.</p>
+<p><img alt="Skymap vertical resolution" src="/old-chunky-docs/skymap_vertical_resolution.png" /></p>
+<h2>Where to find skymaps</h2>
+<p>These pages provide links to other pages, or downloads of non-HDR skymaps:</p>
+<ul>
+<li><a href="http://www.reddit.com/r/chunky/comments/17ts4b/some_more_skymaps/">http://www.reddit.com/r/chunky/comments/17ts4b/some_more_skymaps/</a></li>
+<li><a href="https://www.eso.org/public/images/eso0932a/">Milky Way Panorama by ESO</a></li>
+</ul>
+<h2>HDR Skymaps</h2>
+<p>HDR skymaps have the advantage that they can be used to provide realistic
+outdoor lighting for a scene.</p>
+<p>Most of these sites provide paid-for skymaps, but many of them have a few free
+samples available:</p>
+<ul>
+<li><a href="http://www.cgskies.com/skies.php">CGSkies</a></li>
+<li><a href="http://www.openfootage.net/?cat=15">openfootage.net</a></li>
+<li><a href="https://hdrihaven.com/hdris/?c=skies">HDRI Haven</a></li>
+<li><a href="http://www.nordicfx.net/?works=hdri">nordicFX</a></li>
+<li><a href="http://www.hdri-hub.com/free-samples">HDRI-Hub.com</a></li>
+<li><a href="http://www.hdrlabs.com/sibl/archive.html">sIBL Archive</a></li>
+<li><a href="http://hdrmaps.com/freebies">hdrmaps.com</a></li>
+<li><a href="http://dativ.at/lightprobes/">Light probes by Bernhard Vogl</a></li>
+<li><a href="https://hdri-skies.com/">HDRI Skies</a></li>
+</ul>
+<p>You can also try searcing Google for <a href="https://www.google.com/search?q=panoramic+sky+texture">Panoramic Sky Texture</a></p>
+<h2>Render a Sky Map with Chunky</h2>
+<p>Chunky can be used to render a sky map. You will need to follow these steps
+to set up the camera correctly to render a full 180-by-360 degree sky map:</p>
+<ol>
+<li>Go to the Camera tab in the Render Controls window.</li>
+<li>Enter <code>-90</code> into the second text field of the Direction values.</li>
+<li>Select <code>Panoramic (equirectangular)</code> from the Projection drop-down list.</li>
+<li>Set the field of view to 180 (max out the slider).</li>
+<li>Go to the General tab in the Render Controls window.</li>
+<li>You must set the canvas width to be twice the canvas height to ensure
+that the horizontal resolution is 360 degrees. This can be done by entering for
+example <code>800x400</code> in the canvas size text field and hitting <code>Enter</code>.</li>
+</ol>
+<p>This shows the Camera tab with correct values entered:</p>
+<p><img alt="Camera setup for custom sky map" src="/old-chunky-docs/create_skymap.png" /></p>
+<p>And this is what the resulting render should look like:</p>
+<p><img alt="Custom sky map" src="/old-chunky-docs/custom_skymap.png" /></p>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/skymaps.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

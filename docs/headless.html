@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Headless Rendering</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="headless.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Headless Rendering</h1>
+<p>Headless rendering in Chunky can be used to render scenes without using the
+GUI, and is useful for example when rendering on a server or when automating
+or scripting renders.</p>
+<h2>Chunky Launcher</h2>
+<p>When working with Chunky from the command line, you should be aware of what the
+launcher does. The launcher is bundled with Chunky since version 1.2.0 and it
+is responsible for launching Chunky by starting a new Java process.</p>
+<p>Command-line arguments that start with one dash, like <code>-snapshot</code> are sent
+to Chunky, while arguments starting with two dashes, like <code>--update</code>, are
+options to the launcher.</p>
+<h3>JVM Options</h3>
+<p>JVM options (memory limit etc.) used when starting Chunky normally only
+apply to the launcher and not the actually Chunky process.
+Any JVM options you want to add to the Chunky command must be added to the
+<code>javaOptions</code> variable in the <code>chunky-launcher.json</code> file in your local
+Chunky settings directory (<code>~/.chunky</code> is the default directory).</p>
+<p>To see the Java command line arguments used to start Chunky you can add
+the <code>--verbose</code> flag when running Chunky. This makes the launcher print the
+command it used to start Chunky.</p>
+<h2>Custom Settings Directory</h2>
+<p>Since version 1.4 Chunky allows specifying a custom settings directory via
+the <code>chunky.home</code> Java property. The property can be passed to the
+Chunky launcher and the launcher will then pass it on to Chunky itself.</p>
+<p>Changing the settings directory can be useful if you need to run multiple
+instances of Chunky on the same computer, or if you just need more control
+over where the settings and scenes are stored.</p>
+<p>Here is an example showing how to specify a custom scene directory:</p>
+<pre><code>$ mkdir ~/chunky
+$ java -Dchunky.home="~/chunky" -jar ChunkyLauncher.jar --update
+</code></pre>
+<p>Note that the <code>-Dchunky.home</code> argument must be passed before <code>-jar</code>.  If you
+are using Bash it is convient to make an alias for the <code>java</code> command
+above, for example:</p>
+<pre><code>CHUNKY_HOME=~/chunky
+alias chunky java -Dchunky.home="$CHUNKY_HOME" -jar ChunkyLauncher.jar
+</code></pre>
+<p>The lines above could also be added to your <code>.bashrc</code> file.</p>
+<h2>Setting Things Up</h2>
+<p>It may be necessary to do some setup before you can start rendering in headless
+mode.</p>
+<p>The following steps should be done before the first time you start rendering
+in headless mode, and some of these steps may need to be repeated later to
+update Chunky or Minecraft:</p>
+<ol>
+<li>
+<p>Download Chunky and place the Jar-file on your rendering machine. It is
+  sufficient to download the latest version of the Launcher by issuing this
+  command:</p>
+<pre><code>wget http://chunkyupdate.llbit.se/ChunkyLauncher.jar
+</code></pre>
+</li>
+<li>
+<p>Download the latest version of Chunky:</p>
+<pre><code>java -jar ChunkyLauncher.jar --update
+</code></pre>
+</li>
+<li>
+<p>Make Chunky download some Minecraft version (for example 1.11.2):</p>
+<pre><code>java -jar ChunkyLauncher.jar -download-mc 1.11.2
+</code></pre>
+</li>
+</ol>
+<h2>Rendering</h2>
+<p>Rendering a scene using the command-line interface is simple, assuming that you
+have set up the scene parameters and copied your scene files to your scene
+directory (default=<code>$CHUNKY_HOME/scenes</code>).</p>
+<p>The simplest way to render a scene is to run the command</p>
+<pre><code>chunky -render SceneName
+</code></pre>
+<p>Replace <code>SceneName</code> with the name of your scene. Run this command to print
+a list of all available scenes:</p>
+<pre><code>chunky -list-scenes
+</code></pre>
+<p>Chunky will keep rendering until it reaches the target SPP. You can stop Chunky
+prematurely by hitting <code>Ctrl-C</code>, however this does not save the current
+rendering progress! The render progress is normally saved after intervals
+determined by the <code>dumpFrequency</code> scene setting.</p>
+<p>Snapshots can be created from a scene with some saved rendering progress by
+using the <code>-snapshot</code> command:</p>
+<pre><code>chunky -snapshot SceneName snapshot.png
+</code></pre>
+<p>The <code>snapshot.png</code> part of is the filename for the Png file to create.</p>
+<h2>Command-Line Options</h2>
+<p>Run Chunky with the <code>-help</code> command to see a list of all available command-line
+options. Currently these options are available:</p>
+<ul>
+<li><code>-render &lt;SCENE&gt;</code> - render in headless mode.
+    You may also need to add the <code>-f</code> flag to force a scene to render.</li>
+<li><code>-texture &lt;FILE&gt;</code> - load the specified texture pack</li>
+<li><code>-snapshot &lt;SCENE&gt; &lt;PNG&gt;</code> - create a snapshot from a scene</li>
+<li><code>-scene-dir &lt;DIR&gt;</code> - specify scene directory</li>
+<li><code>-threads &lt;NUM&gt;</code> - change number of render threads</li>
+<li><code>-tile-width &lt;NUM&gt;</code> - modifies the frame subdivision size per worker thread</li>
+<li><code>-target &lt;NUM&gt;</code> - set the SPP target for the current headless render</li>
+<li><code>-set &lt;NAME&gt; &lt;VALUE&gt;</code> - modify a Chunky setting value</li>
+<li><code>-set &lt;NAME&gt; &lt;VALUE&gt; &lt;SCENE&gt;</code> - modify a scene setting</li>
+<li><code>-reset &lt;NAME&gt;</code> - reset a Chunky setting to its default value</li>
+<li><code>-reset &lt;NAME&gt; &lt;SCENE&gt;</code> - reset a scene setting to its default value</li>
+<li><code>-download-mc &lt;VERSION&gt;</code> - download a particular version of Minecraft</li>
+<li><code>-list-scenes</code> - list available scenes in the scene directory (since 1.4.0)</li>
+<li><code>-merge-dump &lt;SCENE&gt; &lt;PATH&gt;</code> merge a render dump into the specified scene (since 1.4.0)</li>
+<li><code>-help</code> - print the command-line help</li>
+</ul>
+<p>The launcher accepts these commands:</p>
+<ul>
+<li><code>--update</code> - download the latest version of Chunky</li>
+<li><code>--setup</code> - interactive command-line Chunky setup</li>
+<li><code>--nolauncher</code> - should not be used in headless mode</li>
+<li><code>--launcher</code> - force the launcher UI to be shown</li>
+<li><code>--version</code> - display the launcher version</li>
+<li><code>--verbose</code> - enable verbose logging</li>
+</ul>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/headless.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

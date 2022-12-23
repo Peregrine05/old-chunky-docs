@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Frequently Asked Questions</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="faq.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Frequently Asked Questions</h1>
+<p>Post any questions un-answered here to the <a href="http://www.reddit.com/r/chunky">reddit community</a>.
+Please post bugs on the <a href="https://github.com/llbit/chunky/issues">chunky GitHub page.</a></p>
+<ul>
+<li>
+<p><strong>Q: Why is there noise/grain/random bright dots in the render?</strong>
+  This is not a bug, but an unfortunate effect of the rendering algorithm used
+  in Chunky. Torches and other small light sources cause a very random
+  illumination and it takes a long time to render such light nicely. For more
+  information please read the <a href="/old-chunky-docs/path_tracing.html">Path Tracing</a> article. You can disable
+  emitters under the Lighting tab in the Render Controls dialog to remove most
+  of the random bright dots.  <strong>Note that rendering for a longer time will
+  eventually remove the noise</strong>, though it may take a very long time.</p>
+<p>Note - There are techniques and plugins which can help reduce noise. For more information please visit <a href="https://jackjt8.github.io/ChunkyGuide/docs/advanced_techniques/denoising.html">jackjt8's Guide to Chunky - Denoising</a>.</p>
+</li>
+<li>
+<p><strong>Q: How long does it take to render an image?</strong>
+  There is no exact answer to this question. The main thing that affects render
+  time is your CPU, the size of the image, and the lighting conditions in the
+  scene you are rendering. It can take anywhere from an hour to a couple of
+  days to render a nice image. You can reduce the size of the canvas, disable
+  emitters, enable ESS, or use a denoising technique to speed up the convergence rate. See the <a href="/old-chunky-docs/path_tracing.html">Path Tracing</a> article or <a href="https://jackjt8.github.io/ChunkyGuide/docs/advanced_techniques/denoising.html">jackjt8's Guide to Chunky - Denoising</a> for more details.</p>
+</li>
+<li>
+<p><strong>Q: Is GPU rendering supported?</strong>
+  GPU rendering support for Chunky 2.4.0-77 or later is currently in development in the form of an OpenCL 1.2 renderer plugin. This renderer is still under development and many features of the CPU renderer are not yet supported. For more information and WIP builds please visit <a href="https://github.com/alexhliu/ChunkyClPlugin">the plugins GitHub</a>.</p>
+</li>
+<li>
+<p><strong>Q: Why are mobs not rendered?</strong>
+  Chunky cannot currently render entities, with the exception of paintings. Entities are objects that are separate from the blocks that make up the Minecraft worlds, such as players, mobs, minecarts, projectiles, etc. Future support for rendering entities is planned, but there is no deadline for this feature yet, so stay tuned!</p>
+</li>
+<li>
+<p><strong>Q: Can Chunky render custom block models and mod blocks?</strong>
+  Support for custom block models and mod blocks is currently in development on the <a href="https://github.com/leMaik/chunky/tree/json-block-models">json-block-models branch within leMaik/chunky</a>; as the name implies this would enable support for block models defined with json files. Support will initially roll out as a plugin before, hopefully, being integrated directly into Chunky.</p>
+<p>Otherwise for information on currently supported blocks check out the article on <a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a>.</p>
+</li>
+<li>
+<p><strong>Q: Why does the sky look bad?</strong>
+  You might have a low resolution skymap, or it may be the wrong format.</p>
+</li>
+<li>
+<p><strong>Q: Where can I find Skymaps?</strong>
+  The <a href="/old-chunky-docs/skymaps.html">Skymap</a> page has some useful links for obtaining high quality skymaps.</p>
+</li>
+<li>
+<p><strong>Q: What about the SpigotMC Plugin?</strong>
+  <a href="https://www.spigotmc.org/resources/chunky.81534/">Chunky (SpigotMC)</a> is an unrelated project which has an unfortunate name collision. Said plugin is used to quickly pre-generate server chunks.</p>
+</li>
+</ul>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/faq.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Your first render from start to finish!</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="your_first_render.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Your first render from start to finish!</h1>
+<blockquote>
+<p>This guide will be written from openSUSE, but everything should work just fine with Windows, macOS or your linux distro of choice :)</p>
+</blockquote>
+<hr />
+<h2>Download</h2>
+<p>First, download Chunky <a href="http://chunky.llbit.se/download.html">here</a>.</p>
+<ul>
+<li>Windows: Download and run the Windows installer</li>
+<li>Linux: Download the cross platform binary, extract it to a folder of your choice</li>
+<li>macOS: Download and install using the Mac Bundle</li>
+</ul>
+<p>Windows / macOS: Once it has installed / been extracted, run the launcher.</p>
+<p>Linux: Open the extracted folder, right click anywhere in the file browser window and open your favourite terminal emulator.</p>
+<p>Run: <code>java -jar chunky-1.4.5.jar</code>, making sure to replace 1.4.5 with the correct version number.</p>
+<p>Or for later versions of Chunky: <code>java -jar chunkylauncher.jar</code></p>
+<hr />
+<h2>Install and Launch</h2>
+<p>When running for the first time, you will be prompted where to install.</p>
+<p>Use the reccomended directory:
+- AppData on Windows
+- /home/ on Linux</p>
+<p><img alt="Launcher" src="https://i.imgur.com/dCtQUKI.png" /></p>
+<p>In the launcher, you shouldn't need to change any settings, unless your <code>.minecraft</code> folder is installed in a place other then where Chunky thinks it is.
+Allocate more RAM if your PC can handle it, but if it fails to start, try allocating less. 1024mb should be more then enough for most things.</p>
+<p>Click launch.</p>
+<hr />
+<h2>Getting camera position</h2>
+<blockquote>
+<p>This is the simplest way to get your camera in the correct position, feel free to skip this part if you are more confident!</p>
+</blockquote>
+<p>Now that Chunky is set up, you can close it for now.
+Open the Minecraft world you want to render inside of Minecraft, and move your player to wherever you want your camera to be in the render. Face the direction too!
+Hit F3:</p>
+<p><img alt="f3 screen" src="https://i.imgur.com/zKH4wp7.gif" /></p>
+<p>Take note of the fields highlighted in red!
+You will need them to get your camera in the correct place inside of Chunky.</p>
+<p>Close your game.</p>
+<hr />
+<h2>Selecting Chunks</h2>
+<p>If you aren't already inside of Chunky, go ahead and launch it again. You should see something like this:</p>
+<p><img alt="Chunky Open" src="https://i.imgur.com/KmqSsck.png" /></p>
+<p>Hit 'Change World' and select the Minecraft world you want to render.</p>
+<p><img alt="Chunky Chunks" src="https://i.imgur.com/RqaVU7R.png" /></p>
+<p>Select the correct dimension using the buttons on the right, then select the chunks you want to be loaded in the render.</p>
+<ul>
+<li>Left click a chunk to select / unselect the chunk</li>
+<li>Shift click + drag to select a rectangular area</li>
+<li>Crtl Shift click + drag to unselect a rectangular area</li>
+<li>Click and drag to pan around the world</li>
+<li>Zoom in and out using the scroll wheel</li>
+</ul>
+<blockquote>
+<p>Selecting less chunks can decrease rendering time, but they will be completely missing from the render. Try and only select what the camera can see!</p>
+</blockquote>
+<hr />
+<h2>Setting up your render:</h2>
+<blockquote>
+<p>This is the part where you can customise settings to your heart's content! I will only be going through basic settings, but feel free to customise and experiment however you want!</p>
+</blockquote>
+<p>Click the '3D Render' tab, then click 'New scene'.</p>
+<p><img alt="Render Settings" src="https://i.imgur.com/sYUCI3Z.png" />
+You will be greeted by a menu that looks like this and a preview pane.
+Set the canvas size to whatever you want, but be aware that a larger canvas size will significantly increase render times!
+For the purpose of this guide, I will use 960x540.</p>
+<hr />
+<p>Set the Save Dump every x frames to a whatever you want. Set it to a lower number to dump more often. </p>
+<blockquote>
+<p>If you think your PC / Chunky may crash during the render, set this to a lower number x)</p>
+</blockquote>
+<p>Turn on Save Snapshot for each dump as well if you also want to save the current state of the canvas with each dump.</p>
+<blockquote>
+<p>The above settings shouldn't affect perfomance.</p>
+</blockquote>
+<p>Feel free to load players and biome colours, but be aware that this may increase render times slightly.</p>
+<p>Next, hit the Camera tab.
+<img alt="Camera Position" src="https://i.imgur.com/dCCwFgX.png" />
+Click the Position and Orientation dropdown.
+Enter in the X Y Z you took note of earlier in the respective fields.
+Enter the two Direction Facing numbers you took note of earlier in the second row of the dropdown. If the world appears upside down, try adding a <code>-</code> in front of the value in the middle box.
+The 3rd box is the camera rotation. Leave it blank for the camera to be horizontal.</p>
+<blockquote>
+<p>Feel free to tweak the positions so they fit the preview!</p>
+<p>If changes don't appear to be happening to the preview, hit enter after every field you change!</p>
+</blockquote>
+<p>If you want to focus on a specific object, edit the field of view, subject distance and depth of field. If the thing you want to focus on is in the middle of the image as shown by the crosshair, click autofocus.
+Otherwise, you can leave this setting unchanged.</p>
+<p>Hit the lighting tab.
+<img alt="Lighting Tab" src="https://i.imgur.com/NpKrSkf.png" /></p>
+<p>Change the values here as you please.
+Set skylight to a lower value for a more night-time looking result.</p>
+<p>Enable emitters if you want things like torches, lava, glowstone, etc emit light in the render.</p>
+<blockquote>
+<p>Emitters will <em>significantly</em> increase render times, and require a much higher SPP to look smooth!</p>
+</blockquote>
+<p>Change the sun position, etc to whatever you want to affect shadows, etc</p>
+<p>Adjust the sky and fog tab as you please, not much to explain there.</p>
+<p>Hit the water tab.</p>
+<p><img alt="Water Tab" src="https://i.imgur.com/iYn7CDe.png" /></p>
+<p>Adjust water however you see fit.
+Still water removes the natural 'ripple' effect from water.
+Water Visibility affects how far under water you can see.
+Water Opacity affects how transparent the water appears. 1 = Solid. 0 = Completely clear.
+Set the water colour to whatever you like.</p>
+<blockquote>
+<p>Having unstill water, a high water visibility and low water opacity can make render times longer!</p>
+</blockquote>
+<p>Feel free to adjust whatever you want in the entity tab.
+Press <code>-</code> to remove the entity from the render, and <code>+</code> to add new ones.</p>
+<blockquote>
+<p>Entities usually have a minimal effect on render times.</p>
+<p>I am not going to cover the Materials tab or post-processing tab in this guide, but feel free to experiment with it!</p>
+<p>Post Processing can have a large impact on render times while the preview window is open. Close it while Chunky is rendering!</p>
+</blockquote>
+<p>Click the Advanced Tab.</p>
+<p><img alt="Advanced Tab" src="https://i.imgur.com/hOlrMiQ.png" /></p>
+<p>Adjust CPU load and threads as you see fit. Chunky renders using solely CPU. GPU support may come Soon (tm)</p>
+<blockquote>
+<p>If you plan to use your PC while it is rendering / have a weaker computer, reduce CPU load to around 40-60% and reduce threads as you see fit. Be aware that lower CPU load / less threads can significantly increase render times!</p>
+</blockquote>
+<p>Set Ray Depth to whatever you want. 3-8 is usually good enough.</p>
+<p>Click the Shutdown on render complete if you want your computer to shutdown after the target SPP has been reached.</p>
+<blockquote>
+<p>If you are using linux, this option will have no effect unless you allow the <code>shutdown</code> command to run without needing <code>sudo</code> as the command requires <code>sudo</code> permissions. For obvious reasons, Chunky won't store your sudo password for when it's time to execute the command x). You can find a guide on the internet fairly easily for allowing the shutdown command to run without <code>sudo</code>.</p>
+</blockquote>
+<p>Set the target SPP to whatever you want.</p>
+<blockquote>
+<p>SPP means samples per pixel. A lower SPP has significantly faster render times, but the image may appear grainy. A higher SPP takes longer to render, but the image will have much less grains.
+If you are using emitters, you will need a much higher SPP then if you weren't.
+There is no right or wrong amount of SPP, but 500-3000 is good place to aim :)</p>
+</blockquote>
+<p>When you are ready, hit render, and wait for your beautiful image to be produced!</p>
+<blockquote>
+<p>This could take anywhere between two minutes and two days. Sit tight!</p>
+<p>If you get an error complaining about a missing directory, hit OK and let it create the folder for you. It should continue as normal.</p>
+</blockquote>
+<p>Here is what my finished image looks like:</p>
+<p><img alt="Final" src="https://i.imgur.com/POsTgzy.png" /></p>
+<p>Your result will be stored in your .chunky/scenes folder:</p>
+<ul>
+<li>Windows: C:\Users/Your_User_Name/AppData/Local/.chunky/scenes (if it is not in AppData/Local, try AppData/Roaming)</li>
+<li>Linux: /home/.chunky/scenes</li>
+</ul>
+<p>Move the image somewhere safe and delete what you don't need from inside the scenes folder, ready for your next render. While it isn't required, it helps keep your scene list clean.</p>
+<blockquote>
+<p>The number next to the image name is the number of SPP the image was exported as. You may have multiple images if you set 'Save Snapshot for each dump' to checked. The image with the highest number is your finished result!</p>
+<p>This guide was written by EmeraldSnorlax :)</p>
+</blockquote>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/your_first_render.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

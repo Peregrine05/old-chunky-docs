@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chunky 1.4.0</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="release/1.4.0/release_notes.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Chunky 1.4.0</h1>
+<h2>Downloads</h2>
+<ul>
+<li><a href="https://launchpad.net/chunky/1.4/1.4.0/+download/Chunky-1.4.0.exe">Windows installer</a></li>
+<li><a href="https://launchpad.net/chunky/1.4/1.4.0/+download/Chunky-1.4.0.dmg">Mac bundle</a></li>
+<li><a href="https://launchpad.net/chunky/1.4/1.4.0/+download/Chunky-1.4.0.zip">Cross-platform binaries</a></li>
+<li><a href="http://chunkyupdate.llbit.se/ChunkyLauncher.jar">Only launcher (win, mac, linux)</a></li>
+</ul>
+<h2>Release Notes</h2>
+<p>NOTE: This version <strong>REQUIRES</strong> Java 8 update 40 or later!</p>
+<p>The User Interface has been modernized by rewriting it in JavaFX.</p>
+<p>This release also includes the following changes:</p>
+<ul>
+<li>Minecraft 1.10 blocks are now supported.</li>
+<li>Improvements to the command-line interface.</li>
+<li>Small rendering fixes (fog, droppers, dispensers, chorus plant, end rods).</li>
+<li>Many bug fixes.</li>
+</ul>
+<h2>ChangeLog</h2>
+<ul>
+<li>Chunky now requires Java 8 update 40, or a later version.</li>
+<li>Added rendering for Minecraft 1.10 blocks:<ul>
+<li>Bone Block</li>
+<li>Magma Block</li>
+<li>Red Nether Brick</li>
+<li>Nether Wart Block</li>
+</ul>
+</li>
+<li>Modernized the Chunky User Interface by rewriting it in JavaFX.</li>
+<li>Most of the UI remains similar to the old version, but some parts
+  were redesigned:<ul>
+<li>Controls for multiple cameras have been simplified.</li>
+<li>The Highlight tab has been merged into the Options tab.</li>
+<li>The gradient editor and color pickers were slightly redesigned.</li>
+<li>Added some sky gradient presets.</li>
+<li>Removed the fullscreen option for the preview window.</li>
+</ul>
+</li>
+<li>Removed old features that were not well supported. The goal is to
+  make these into separate plugins:<ul>
+<li>Removed the benchmark tool.</li>
+<li>Removed the experimental OpenCL renderer.</li>
+</ul>
+</li>
+<li>Holding Control while moving the camera multiplies move distance by 100.</li>
+<li>The render preview scaling option has been moved into a context menu.
+  Right clicking the render preview window brings up the scaling menu.</li>
+<li>Added option to show guide grid in the render preview. The option is
+  accessed through the right-click context menu.</li>
+<li>Pressing Space in the render preview window starts/pauses/resumes rendering.</li>
+<li>Fixed player entities not being saved if they were the only entity type in a
+  scene.</li>
+<li>Fixed bug preventing new players from being added to a scene if no players
+  were already loaded.</li>
+<li>Minor changes to the UI:<ul>
+<li>Added an icon to the camera view visualization.</li>
+<li>Removed the chunk loading indicator icon.</li>
+<li>Removed the player Y position indicator.</li>
+<li>Removed fullscreen preview.</li>
+</ul>
+</li>
+<li>Added new command-line options:<ul>
+<li>Added -list-scenes command.</li>
+<li>Added -merge-dump command.</li>
+<li>Made it possible to manually set the Chunky settings directory using a
+  system property (java -Dchunky.home=DIR).</li>
+</ul>
+</li>
+<li>Added Omni-Directional Stereo projector (thanks leMaik!)</li>
+<li>Rendering improvements and fixes:<ul>
+<li>End rods now emit light.</li>
+<li>Vertical droppers and dispensers are now rendered correctly.</li>
+<li>Improved fog rendering through glass and other transparent materials.</li>
+<li>Fixed issue causing Chorus Plant to not connect to End Stone blocks.</li>
+</ul>
+</li>
+<li>Experimental Plugin API added.</li>
+</ul>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/release/1.4.0/release_notes.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

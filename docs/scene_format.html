@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scene Description Format</title>
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link href="/old-chunky-docs/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+<style>
+#menu a[href="scene_format.html"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<a name="top"></a>
+<body>
+  <div class="hint">
+    <p>This website is a clone of the old Chunky documentation which was previously hosted at https://chunky.llbit.se. The current Chunky documentation is hosted at <a href="https://chunky-dev.github.io/docs/" target="_blank">https://chunky-dev.github.io/docs/</a>.</p>
+  </div>
+  <table id="wrapper">
+    <tr id="content">
+      <td id="menu">
+        <a href="index.html" id="logo">Chunky</a>
+<ul>
+<li><a href="/old-chunky-docs/search.html"><img src="/old-chunky-docs/search.png">&nbsp;Search Documentation</a></li>
+<li><a href="https://discord.gg/VqcHpsF"><img alt="Join our Discord server!" src="/old-chunky-docs/discord_icon.png" /></a></li>
+<li><a href="/old-chunky-docs/index.html">About</a><ul>
+<li><a href="/old-chunky-docs/news.html">News</a></li>
+<li><a href="/old-chunky-docs/download.html">Download</a></li>
+<li><a href="/old-chunky-docs/chunky2.html">Chunky 2</a></li>
+<li><a href="/old-chunky-docs/faq.html">FAQ</a></li>
+<li><a href="/old-chunky-docs/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/gallery.html"><img src="/old-chunky-docs/gallery.png">&nbsp;Gallery</a></li>
+<li><a href="/old-chunky-docs/getting_started.html">Getting Started</a><ul>
+<li><a href="/old-chunky-docs/your_first_render.html">Your first render!</a></li>
+<li><a href="/old-chunky-docs/install.html">Installation</a></li>
+<li><a href="/old-chunky-docs/tips.html">Tips</a></li>
+</ul>
+</li>
+<li><a href="/old-chunky-docs/user_interface.html">User Interface</a><ul>
+<li><a href="/old-chunky-docs/2d_map.html">2D Map</a></li>
+<li><a href="/old-chunky-docs/render_controls.html">Render Controls</a></li>
+<li><a href="/old-chunky-docs/render_preview.html">Render Preview</a></li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="/old-chunky-docs/path_tracing.html">Path Tracing</a></li>
+<li><a href="/old-chunky-docs/headless.html">Headless Rendering</a></li>
+<li><a href="/old-chunky-docs/scene_format.html">Scene Format</a></li>
+<li><a href="/old-chunky-docs/minecraft_compatibility.html">Minecraft Compatibility</a></li>
+<li><a href="/old-chunky-docs/plugin_api.html">Plugin API</a></li>
+<li>API Docs (Currently unavailable)</li>
+</ul>
+</li>
+<li>Community<ul>
+<li><a href="https://github.com/llbit/chunky">GitHub</a></li>
+<li><a href="https://github.com/llbit/chunky/issues">Issue Tracker</a></li>
+<li><a href="https://www.reddit.com/r/chunky">Reddit</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="/old-chunky-docs/skymaps.html">Skymaps</a></li>
+<li><a href="https://jackjt8.github.io/ChunkyGuide/">jackjt8's Guide to Chunky</a></li>
+<li><a href="/old-chunky-docs/contributing.html">Contributing</a></li>
+<li><a href="/old-chunky-docs/credits.html">Credits</a></li>
+</ul>
+</li>
+</ul>
+      </td>
+      <!--Content goes here -->
+      <td id="article">
+<h1>Scene Description Format</h1>
+<p>Most of the settings in Chunky scenes are stored in Scene Description files
+using a JSON-based file format. This page documents the SDF file format. The
+documentation is currently incomplete, and may lag behind the current Chunky
+version as new versions are released. Check the version history at the end of
+this page to see the latest updates made to the SDF documentation.</p>
+<p>SDF JSON files are stored in the scene directory and the filename is based on
+the scene name with <code>.json</code> appended. For example, the JSON file for a scene
+named <code>MyScene</code> would be <code>MyScene.json</code>.</p>
+<h2>Structure</h2>
+<p><a href="/old-chunky-docs/example_scene.html">Click here</a> to view an example scene description file.</p>
+<p>The JSON file contains one JSON object with these named elements:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sdfVersion</td>
+<td>Integer</td>
+<td>6</td>
+<td>Scene Description Format (SDF) version</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td></td>
+<td>Scene name</td>
+</tr>
+<tr>
+<td>width</td>
+<td>Integer</td>
+<td>400</td>
+<td>Canvas width</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Integer</td>
+<td>400</td>
+<td>Canvas height</td>
+</tr>
+<tr>
+<td>exposure</td>
+<td>Number</td>
+<td>1.0</td>
+<td>Camera exposure</td>
+</tr>
+<tr>
+<td>postprocess</td>
+<td><code>{"NONE", "GAMMA", "TONEMAP1"}</code></td>
+<td><code>"GAMMA"</code></td>
+<td>Tonemapping operator</td>
+</tr>
+<tr>
+<td>outputMode</td>
+<td><code>{"PNG", "TIFF_32"}</code></td>
+<td>"PNG"</td>
+<td>Image output mode</td>
+</tr>
+<tr>
+<td>renderTime</td>
+<td>Number</td>
+<td></td>
+<td>Current cumulative rendering time</td>
+</tr>
+<tr>
+<td>spp</td>
+<td>Integer</td>
+<td></td>
+<td>Current samples per pixel (SPP)</td>
+</tr>
+<tr>
+<td>sppTarget</td>
+<td>Integer</td>
+<td>1000</td>
+<td>Render SPP target</td>
+</tr>
+<tr>
+<td>rayDepth</td>
+<td>Integer</td>
+<td>5</td>
+<td>Ray recursion depth</td>
+</tr>
+<tr>
+<td>pathTrace</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Rendering mode (true = path tracing, false = preview)</td>
+</tr>
+<tr>
+<td>dumpFrequency</td>
+<td>Integer</td>
+<td>500</td>
+<td>How often the current render state is saved (samples per state save)</td>
+</tr>
+<tr>
+<td>saveSnapshots</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Whether a snapshot image is saved for each render dump</td>
+</tr>
+<tr>
+<td>emittersEnabled</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>emitterIntensity</td>
+<td>Number</td>
+<td>13.0</td>
+<td></td>
+</tr>
+<tr>
+<td>sunEnabled</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>stillWater</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>waterOpacity</td>
+<td>Number (0 to 1)</td>
+<td>0.42</td>
+<td></td>
+</tr>
+<tr>
+<td>waterVisibility</td>
+<td>Number</td>
+<td>9.0</td>
+<td></td>
+</tr>
+<tr>
+<td>useCustomWaterColor</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>fogColor</td>
+<td>RGB Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>fastFog</td>
+<td>Boolean</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>biomeColorsEnabled</td>
+<td>Boolean</td>
+<td>true</td>
+<td>Color grass and trees differently per biome</td>
+</tr>
+<tr>
+<td>transparentSky</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Renders the sky transparent in the output image so a custom sky background can be easily used</td>
+</tr>
+<tr>
+<td>fogDensity</td>
+<td>Number</td>
+<td>0.0</td>
+<td>Zero fog density disables fog</td>
+</tr>
+<tr>
+<td>waterHeight</td>
+<td>Number</td>
+<td>0</td>
+<td>Zero water height disables water world mode, non-zero height enables water world mode</td>
+</tr>
+<tr>
+<td>world</td>
+<td>World Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>camera</td>
+<td>Camera Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>sun</td>
+<td>Sun Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>sky</td>
+<td>Sky Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>cameraPresets</td>
+<td>Camera Preset Object</td>
+<td></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>chunkList</td>
+<td>Array of integer arrays</td>
+<td></td>
+<td>Chunks in the scene</td>
+</tr>
+<tr>
+<td>actors</td>
+<td>Array of Entity Objects</td>
+<td></td>
+<td>Posable entities such as players.</td>
+</tr>
+<tr>
+<td>entities</td>
+<td>Array of Entity Objects</td>
+<td></td>
+<td>Static entities in the scene, e.g. paintings</td>
+</tr>
+<tr>
+<td>materials</td>
+<td>Sky Object</td>
+<td></td>
+<td>Material properties. See below.</td>
+</tr>
+</tbody>
+</table>
+<h3>RGB Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>red</td>
+<td>Number (0 to 1)</td>
+</tr>
+<tr>
+<td>green</td>
+<td>Number (0 to 1)</td>
+</tr>
+<tr>
+<td>blue</td>
+<td>Number (0 to 1)</td>
+</tr>
+</tbody>
+</table>
+<h3>XYZ Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>y</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Number</td>
+</tr>
+</tbody>
+</table>
+<h3>Direction Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roll</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>pitch</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>yaw</td>
+<td>Number</td>
+</tr>
+</tbody>
+</table>
+<h3>World Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+<tr>
+<td>dimension</td>
+<td>Integer (0 to 2)</td>
+</tr>
+</tbody>
+</table>
+<h3>Camera Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>position</td>
+<td>XYZ Object</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>Direction Object</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>projectionMode</td>
+<td><code>{"PINHOLE", "PARALLEL", "FISHEYE", "STEREOGRAPHIC", "PANORAMIC", "PANORAMIC_SLOT"}</code></td>
+<td><code>"PINHOLE"</code></td>
+<td>Camera projection mode</td>
+</tr>
+<tr>
+<td>fov</td>
+<td>Number</td>
+<td>70.0</td>
+<td>Field of view</td>
+</tr>
+<tr>
+<td>dof</td>
+<td>Number</td>
+<td>"Infinity"</td>
+<td>Depth of field</td>
+</tr>
+<tr>
+<td>focalOffset</td>
+<td>Number</td>
+<td></td>
+<td>Distance to target</td>
+</tr>
+</tbody>
+</table>
+<h3>Sun Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>altitude</td>
+<td>Number (0 to PI/2)</td>
+<td></td>
+<td>The direction to the sun above the horizon</td>
+</tr>
+<tr>
+<td>azimuth</td>
+<td>Number (0 to 2PI)</td>
+<td></td>
+<td>The direction to the sun measured from north</td>
+</tr>
+<tr>
+<td>intensity</td>
+<td>Number</td>
+<td>1.25</td>
+<td>Sunlight scaling factor</td>
+</tr>
+<tr>
+<td>color</td>
+<td>RGB Object</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Sky Object</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>skyYaw</td>
+<td>Number (0 to 2PI)</td>
+<td></td>
+<td>Offset angle for the sky map</td>
+</tr>
+<tr>
+<td>skyMirrored</td>
+<td>Boolean</td>
+<td>true</td>
+<td>Enables mirroring of the skymap at the horizon (use when the vertical skymap angle is 90 degrees)</td>
+</tr>
+<tr>
+<td>skyLight</td>
+<td>Number</td>
+<td>1.0</td>
+<td>Sky light scaling factor</td>
+</tr>
+<tr>
+<td>mode</td>
+<td><code>{"SIMULATED", "GRADIENT", "SKYMAP_PANORAMIC", "SKYMAP_SPHERICAL", "SKYBOX", "BLACK"}</code></td>
+<td><code>"SIMULATED"</code></td>
+<td>Sky rendering mode</td>
+</tr>
+<tr>
+<td>horizonOffset</td>
+<td>Number (0 to PI/2)</td>
+<td>Offset the horizon to simulate a curved earth. This helps hiding the horizon below distant objects.</td>
+<td></td>
+</tr>
+<tr>
+<td>cloudsEnabled</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>cloudSize</td>
+<td>Number</td>
+<td>64.0</td>
+<td></td>
+</tr>
+<tr>
+<td>cloudOffset</td>
+<td>XYZ Object</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>gradient</td>
+<td>Gradient Object</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Camera Preset Object</h3>
+<p>TBD</p>
+<h3>Gradient Object</h3>
+<p>TBD</p>
+<h3>Material Properties</h3>
+<p>The <code>materials</code> entry in the main Scene JSON can look like this:</p>
+<pre><code>  &quot;materials&quot;: {
+    &quot;block:gray_glazed_terracotta&quot;: {
+      &quot;emittance&quot;: 0.20000000298023224
+    }
+  }
+</code></pre>
+<p>The <code>materials</code> object contains mappings from material name to material
+properties. The material properties objects use the following format:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value range</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>emittance</td>
+<td>Number (0+)</td>
+<td></td>
+<td>How much light the material emits.</td>
+</tr>
+<tr>
+<td>specular</td>
+<td>Number (0 to 1)</td>
+<td></td>
+<td>Specular reflection coefficient.</td>
+</tr>
+<tr>
+<td>ior</td>
+<td>Number</td>
+<td></td>
+<td>Index of refraction.</td>
+</tr>
+</tbody>
+</table>
+<h2>Scripting</h2>
+<p>A simple way to process scene files is by using a scripting language like
+Python. For example, here is a Python script that generates individual scenes
+for each chunk in a square grid of chunks. The script uses an original scene as
+template for the new scenes.</p>
+<pre><code>import json
+import os.path
+
+original_scene = 'D:\Users\Jesper\.chunky\scenes\shore-sun.json'
+scene_dir = os.path.abspath(os.path.join(original_scene, os.pardir))
+
+with open(original_scene, 'r') as f:
+    scene = json.load(f)
+
+for x in range(-10, 1):
+    for z in range(110, 119):
+        scene_name = 'chunk_%dx_%dz' % (x, z)
+        scene['name'] = scene_name
+        scene['chunkList'] = [ [ x, z ] ]
+        scene['spp'] = 0
+        scene['renderTime'] = 0
+        new_scene = os.path.join(scene_dir, scene_name + '.json')
+        print('Writing scene file %s' % new_scene)
+        with open(new_scene, 'w') as f:
+            json.dump(scene, f)
+</code></pre>
+<h2>Version History</h2>
+<ul>
+<li><strong>Version 2</strong> (Chunky 1.2.0 to 1.2.3)</li>
+<li><strong>Version 3</strong> (Chunky 1.3-alpha1 to 1.3.3)</li>
+<li><strong>Version 4</strong> (Chunky 1.3.4)<ul>
+<li>removed clearWater (Boolean)</li>
+<li>added waterOpacity (Number)</li>
+<li>added waterVisibility (Number)</li>
+<li>added waterColor (RGB Object)</li>
+<li>added useCustomWaterColor (Boolean)</li>
+</ul>
+</li>
+<li><strong>Version 5</strong> (Chunky 1.3.5-alpha5)<ul>
+<li>removed atmosphereEnabled (Boolean)</li>
+<li>removed volumetricFogEnabled (Boolean)</li>
+<li>added fogDensity (Number)</li>
+<li>added fogColor (RGB Object)</li>
+<li>added fastFog (Boolean)</li>
+</ul>
+</li>
+<li><strong>Version 6</strong> (Chunky 1.3.5-alpha5)<ul>
+<li>Changed postprocess from Integer to Enum</li>
+<li>Added outputMode (Enum)</li>
+</ul>
+</li>
+<li><strong>Version 7</strong> (Chunky 1.3.8)<ul>
+<li>Added renderActors (Boolean)</li>
+<li>Added actors (Array of Entity Objects)</li>
+</ul>
+</li>
+<li><strong>Version 8</strong> (Chunky 1.4.3)<ul>
+<li>Added materials (material properties)</li>
+</ul>
+</li>
+<li><strong>Version 9</strong> (Chunky 1.4.4)<ul>
+<li>Changed entity pose format.</li>
+<li>Added entity armor items.</li>
+</ul>
+</li>
+</ul>
+      <div id="footer"><a href="https://github.com/Peregrine05/old-chunky-docs/edit/main/src/scene_format.md">Edit page</a></div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
