@@ -37,7 +37,7 @@ Download options for [version @MODERN_VERSION@][1] for Minecraft 1.2.1 to 1.17.1
 [4]: https://chunkyupdate.lemaik.de/ChunkyLauncher.jar
 [5]: install.html
 [6]: getting_started.html
-[7]: /snapshot.html
+[7]: snapshot.html
 [8]: release/1.4.5/release_notes.html
 [9]: https://jackjt8.github.io/ChunkyGuide/
 [10]: https://chunky-dev.github.io/docs/

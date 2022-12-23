@@ -53,7 +53,7 @@ Check out [this blog post for the release spotlights](http://llbit.se/?p=2493).
 *2015-04-08*
 
 We have a survey thing to see which platforms Chunky users use!
-Please answer [these two questions](http://goo.gl/forms/TRFg7Gy64S) if you use Chunky!
+Please answer [these two questions](https://goo.gl/forms/TRFg7Gy64S) if you use Chunky!
 The results are viewable after completing the survey.
 
 ## Version 1.3.4 released!
@@ -95,7 +95,7 @@ rendering improvements.
 
 *2014-07-13*
 
-[Chunky version 1.2.3](/release/1.2.3/release_notes.html) has been released!
+[Chunky version 1.2.3](release/1.2.3/release_notes.html) has been released!
 [Get it here.][2]
 
 ## New Website
@@ -119,6 +119,6 @@ over to this new site by TheRenderJunkie and myself.
 
 /Jesper
 
-[1]: /snapshot.html
-[2]: /download.html
+[1]: snapshot.html
+[2]: download.html
 [3]: https://www.reddit.com/r/chunky/comments/4yf298/chunky_snapshot_140alpha1/

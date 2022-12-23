@@ -2,7 +2,7 @@ Installing Chunky
 =================
 
 Before installing Chunky you will need Java 8 update 40 or later.
-[You can download Java here.](http://java.com)
+[You can download Java here.](https://java.com)
 
 On Ubuntu, some other Linux distributions, and with Java 11 or greater you may have to install a JavaFX
 library to be able to run Chunky. On Ubuntu 16.04, just have to install the

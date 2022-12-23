@@ -36,7 +36,7 @@ sys.stdout.write("""<!doctype html>
 <head>
 <meta charset="utf-8">
 <title>%s</title>
-<link rel="icon" href="/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+<link rel="icon" href="favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
 <link href="style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
@@ -54,7 +54,7 @@ sys.stdout.write("""<!doctype html>
   <table id="wrapper">
     <tr id="content">
       <td id="menu">
-        <a href="/index.html" id="logo">Chunky</a>
+        <a href="index.html" id="logo">Chunky</a>
 """ % (title, filename_no_ext))
 sys.stdout.write(menu)
 sys.stdout.write("""

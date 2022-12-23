@@ -13,7 +13,7 @@ named `MyScene` would be `MyScene.json`.
 
 ##Structure
 
-[Click here](/example_scene.html) to view an example scene description file.
+[Click here](example_scene.html) to view an example scene description file.
 
 The JSON file contains one JSON object with these named elements:
 
